@@ -11,7 +11,12 @@
   </head>
 
   <body>
-    <%= render Shared::Alert::Component.new %>
+    <div class="fixed inset-x-0 top-0 flex flex-col space-y-2 items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none">
+      <%= render Shared::Alert::Component.new(message: notice, kind: 'success') %>
+      <%= render Shared::Alert::Component.new(message: alert, kind: 'warning') %>
+      <%= render Shared::Alert::Component.new(message: flash[:error], kind: 'error') %>
+    </div>
+    <div data-controller="hello">hello stimulus</div>
     <%= yield %>
   </body>
 </html>

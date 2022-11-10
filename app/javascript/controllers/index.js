@@ -7,5 +7,5 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import AlertController from "../../components/shared/alert/component_controller";
-application.register("alert", AlertController)
+import Notification from 'stimulus-notification'
+application.register("notification", Notification)

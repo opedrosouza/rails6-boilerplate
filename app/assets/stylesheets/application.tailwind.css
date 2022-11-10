@@ -1,7 +1,6 @@
+/* Import the components styles here on the top */
+@import "../../components/shared/alert/component";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-/* @import "../../components/shared/alert/component"; */
-@import "../components/alert";

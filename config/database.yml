@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") %>
+  username: <%= ENV.fetch("DB_USER") %>
+  password: <%= ENV.fetch("DB_PASS") %>
+
+development:
+  <<: *default
+  database: boilerplate_development
+
+test:
+  <<: *default
+  database: boilerplate_test
+
+production:
+  <<: *default
+  database: boilerplate_production
+  username: boilerplate
+  password: <%= ENV['BOILERPLATE_DATABASE_PASSWORD'] %>

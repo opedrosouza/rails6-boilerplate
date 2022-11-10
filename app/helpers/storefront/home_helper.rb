@@ -1,0 +1,2 @@
+module Storefront::HomeHelper
+end

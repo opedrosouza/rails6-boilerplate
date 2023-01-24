@@ -16,7 +16,6 @@
       <%= render Shared::Alert::Component.new(message: alert, kind: 'warning') %>
       <%= render Shared::Alert::Component.new(message: flash[:error], kind: 'error') %>
     </div>
-    <div data-controller="hello">hello stimulus</div>
     <%= yield %>
   </body>
 </html>

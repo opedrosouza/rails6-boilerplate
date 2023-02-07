@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
+
 import NotificationController from "./notification_controller"
 application.register("notification", NotificationController)

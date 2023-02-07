@@ -1,0 +1,35 @@
+<%= content_for :page_title do %>
+  Faça login em sua conta
+<% end %>
+
+<%= content_for :page_other_action do %>
+  Ainda não possui uma conta? <br> <%= link_to "Crie uma conta gratuitamente agora mesmo.", new_user_registration_path, class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "space-y-6") do |f| %>
+  <%= render 'users/shared/error_messages' %>
+  <div class="form-group space-y-1">
+    <%= f.label :email, "Seu Email", class: "form-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Ex. pedro@mail.com" %>
+  </div>
+
+  <div class="form-group space-y-1">
+    <%= f.label :password, "Informe sua senha", class: "form-label" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "*******" %>
+  </div>
+
+  <div class="form-group flex items-center justify-between">
+    <div class="flex items-center">
+      <%= f.check_box :remember_me, class: "form-check" %>
+      <%= f.label :remember_me, "Lembre-se de mim", class: "form-label ml-2" %>
+    </div>
+    <div class="text-sm">
+      <%= link_to "Esqueceu sua senha?", new_user_password_path, class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.submit "Entrar", class: "form-submit" %>
+  </div>
+<% end %>

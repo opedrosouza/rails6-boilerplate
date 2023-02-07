@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
   <head>
     <title>Boilerplate</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,11 +10,27 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <div class="fixed inset-x-0 top-0 flex flex-col space-y-2 items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none">
-      <%= render Shared::Alert::Component.new(message: notice, kind: 'success') %>
-      <%= render Shared::Alert::Component.new(message: alert, kind: 'warning') %>
-      <%= render Shared::Alert::Component.new(message: flash[:error], kind: 'error') %>
+  <body class="h-full">
+    <div class="min-h-full">
+      <div class="fixed inset-x-0 top-0 flex flex-col space-y-2 items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none">
+        <%= render Shared::Alert::Component.new(message: notice, kind: 'success') %>
+        <%= render Shared::Alert::Component.new(message: alert, kind: 'warning') %>
+        <%= render Shared::Alert::Component.new(message: flash[:error], kind: 'error') %>
+      </div>
+      <div class="bg-gray-800 pb-32">
+        <%= render "layouts/navbar" %>
+        <header class="py-10">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
+          </div>
+        </header>
+      </div>
+
+      <main class="-mt-32">
+        <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <%= yield %>
+        </div>
+      </main>
     </div>
     <%= yield %>
   </body>

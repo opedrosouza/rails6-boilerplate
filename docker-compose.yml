@@ -1,6 +1,30 @@
 version: '3.9'
 
 services:
+  # app:
+  #   build: .
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - fitness-app:/app
+  #   networks:
+  #     - backend
+  #   depends_on:
+  #     - db
+  #     - redis
+  #   environment:
+  #     DB_HOST: db
+  #     DB_NAME: ${DB_NAME}
+  #     DB_PORT: ${DB_PORT}
+  #     DB_USER: ${DB_USER}
+  #     DB_PASS: ${DB_PASS}
+  #     REDIS_HOST: redis
+  #     REDIS_PORT: 6379
+  #     REDIS_PASS: ${REDIS_PASS}
+  #     SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+  #     RAILS_ENV: ${RAILS_ENV}
+  #     RAILS_LOG_TO_STDOUT: ${RAILS_LOG_TO_STDOUT}
+  #     RAILS_SERVE_STATIC_FILES: ${RAILS_SERVE_STATIC_FILES}
   db:
     image: postgres
     restart: always
@@ -13,7 +37,6 @@ services:
     environment:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_USER: ${DB_USER}
-
   redis:
     image: redis
     restart: always
@@ -32,4 +55,6 @@ volumes:
   postgres-data:
     driver: local
   redis-data:
+    driver: local
+  fitness-app:
     driver: local

@@ -8,17 +8,13 @@ default: &default
   port: <%= ENV.fetch("DB_PORT") %>
   username: <%= ENV.fetch("DB_USER") %>
   password: <%= ENV.fetch("DB_PASS") %>
+  database: <%= ENV.fetch("DB_NAME") %>
 
 development:
   <<: *default
-  database: boilerplate_development
 
 test:
   <<: *default
-  database: boilerplate_test
 
 production:
   <<: *default
-  database: boilerplate_production
-  username: boilerplate
-  password: <%= ENV['BOILERPLATE_DATABASE_PASSWORD'] %>
